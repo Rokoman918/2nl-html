@@ -6,25 +6,25 @@ $mail = new PHPMailer();
 $emailTO = $emailBCC =  $emailCC = array(); $formEmail = '';
 
 ### Enter Your Sitename 
-$sitename = 'Your Site Name';
+$sitename = 'Web Site 2NL';
 
 ### Enter your email addresses: @required
-$emailTO[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' ); 
+$emailTO[] = array( 'email' => 'info@2nl.it', 'name' => 'Rodrigo Moreno' ); 
 
 ### Enable bellow parameters & update your BCC email if require.
-//$emailBCC[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
+$emailBCC[] = array( 'email' => 'jrodrigomorenoc@gmail.com', 'name' => 'Rodrigo Moreno' );
 
 ### Enable bellow parameters & update your CC email if require.
 //$emailCC[] = array( 'email' => 'email@yoursite.com', 'name' => 'Your Name' );
 
 ### Enter Email Subject
-$subject = "Contact Us " . ' - ' . $sitename; 
+$subject = "Contactenos de " . ' - ' . $sitename; 
 
 ### If your did not recive email after submit form please enable below line and must change to your correct domain name. eg. noreply@example.com
 //$formEmail = 'noreply@yoursite.com';
 
 ### Success Messages
-$msg_success = "We have <strong>successfully</strong> received your message. We'll get back to you soon.";
+$msg_success = "Hemos recibido<strong>exitosamente</strong> tu mensaje. nos contactaremos muy pronto contigo.";
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST') {
 	if (isset($_POST["contact-email"]) && $_POST["contact-email"] != '' && isset($_POST["contact-name"]) && $_POST["contact-name"] != '') {
@@ -74,10 +74,10 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
 			}
 
 			### Include Form Fields into Body Message
-			$bodymsg .= isset($cf_name) ? "Contact Name: $cf_name<br><br>" : '';
-			$bodymsg .= isset($cf_email) ? "Contact Email: $cf_email<br><br>" : '';
-			$bodymsg .= isset($cf_message) ? "Message: $cf_message<br><br>" : '';
-			$bodymsg .= $_SERVER['HTTP_REFERER'] ? '<br>---<br><br>This email was sent from [ICO]: ' . $_SERVER['HTTP_REFERER'] : '';
+			$bodymsg .= isset($cf_name) ? "Nombre de Contacto: $cf_name<br><br>" : '';
+			$bodymsg .= isset($cf_email) ? "Email de contacto: $cf_email<br><br>" : '';
+			$bodymsg .= isset($cf_message) ? "Mensaje: $cf_message<br><br>" : '';
+			$bodymsg .= $_SERVER['HTTP_REFERER'] ? '<br>---<br><br>este email fue enviado por 2NL web page: ' . $_SERVER['HTTP_REFERER'] : '';
 			
 			// Mailing
 			$mail->MsgHTML( $bodymsg );
